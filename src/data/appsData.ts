@@ -1,117 +1,129 @@
 import { AppItem, ProblemItem, UpdateRequestItem } from '../types';
 
-export const TYPEMASTER_APP: AppItem = {
-  id: 'typemaster',
-  name: 'TypeMaster',
-  tagline: '100% Local, On-Device AI Speech-to-Text for Every Desktop App',
-  description: 'TypeMaster runs high-precision neural speech models directly on your hardware. Press a global hotkey, speak naturally, and watch your voice transcribe into any active window in real time with zero cloud latency and total privacy.',
-  longDescription: 'Engineered for developers, writers, and power users who demand private, instant dictation. Unlike cloud-tethered subscription services, TypeMaster processes every phoneme locally on your CPU or GPU. Your microphone data never touches an external server, your system works fully offline, and it is completely free to download and keep forever.',
+export const GOFLOW_APP: AppItem = {
+  id: 'goflow',
+  name: 'GoFlow',
+  tagline: '100% Local, On-Device AI Speech-to-Text for Every Mac App',
+  description: 'GoFlow brings instant, 100% on-device voice dictation to every app on your Mac. Press a hotkey, speak naturally, and watch your words flow in real time — no cloud, no subscription, no data collected. Free, open source, and yours forever.',
+  longDescription: 'Built for Mac users who refuse to compromise on privacy or performance. GoFlow runs a compact neural speech model directly on your Apple Silicon chip using the Neural Engine and Core ML — transcribing your voice in under 100ms, fully offline. Unlike cloud-based dictation tools, GoFlow never sends a single byte of your audio anywhere. No accounts, no telemetry, no tracking. Everything stays on your machine, exactly as it should. Open source so you can inspect every line, free so there\'s no barrier to entry — and lean enough to run beautifully on any Mac with 8 GB of unified memory.',
   priceUsd: 0,
-  platforms: ['Windows'],
-  version: 'v1.4.2',
-  rating: 4.98,
-  reviewsCount: 342,
-  developer: 'keepware Labs',
+  platforms: ['macOS'],
+  version: 'v1.0.0',
+  rating: 4.9,
+  reviewsCount: 12,
+  developer: 'zeoenix',
   accentColor: 'var(--text)',
-  badge: 'Featured Product',
-  size: '20.6 MB (Installer) • 1.9 GB (Local Model)',
+  badge: 'Open Source',
+  size: '~15 MB (Apple Silicon) · ~18 MB (Intel) · ~380 MB model',
   releasedYear: 2026,
-  updatesIncluded: 'Lifetime core binary updates + continuous local model fine-tunes included',
+  updatesIncluded: 'Lifetime core binary updates + continuous Core ML model improvements included',
   features: [
-    '100% On-Device Neural Processing: Zero audio packets leave your computer.',
-    'Universal Global Hotkey: Tap Alt+Space to dictate into Slack, VS Code, Notion, Obsidian, Terminal, or any text field.',
-    'Sub-180ms Latency: Hardware-accelerated with NVIDIA CUDA & DirectML engines.',
-    'Smart Auto-Punctuation & Formatting: Automatically strips "um/ah", formats code snippets, and fixes casing.',
-    'Custom Technical Vocabulary: Add project names, camelCase variables, and custom jargon easily.',
-    '99+ Languages & Accents: Instant local multi-dialect switching.',
-    'Offline Independence: Operates at 35,000 feet or in secure air-gapped environments with 0 kbps internet.'
+    '100% On-Device Neural Processing: Zero audio leaves your Mac. Ever.',
+    'Universal Global Hotkey: Press ⌥Space to dictate into any app — Notion, Slack, VS Code, Notes, Terminal, anything.',
+    'Apple Silicon Native: Core ML + Neural Engine. Sub-100ms latency on M1 through M4+.',
+    'Intel Mac Support: Optimized CPU inference via AVX2, with Compact Model Mode for smooth performance.',
+    '8 GB Optimized: Engineered to run perfectly on 8 GB Apple Silicon. Compact Model Mode available for 8 GB Intel Macs.',
+    'Smart Auto-Punctuation: Strips "um/ah", auto-capitalises, formats naturally as you speak.',
+    '99+ Languages & Accents: Local multi-dialect switching with no settings change needed.',
+    'Custom Vocabulary: Add camelCase variables, project names, jargon — phonetically boosted instantly.',
+    'Fully Offline: Works in airplane mode, air-gapped networks, and everywhere in between.',
+    'Open Source: Every line is public. Trust nothing you cannot verify.',
+    'Zero Data Collection: No logs, no analytics, no telemetry. Nothing stored. Nothing sent.'
   ],
   usageGuide: [
     {
       id: 'install',
       step: '01',
-      title: 'Download and install — free',
-      description: 'Download the 20.6 MB installer and run it. No account, email, or licence key needed — TypeMaster is free to keep. If Windows SmartScreen shows a warning (the installer is unsigned), click "More info" > "Run anyway".',
-      hint: 'Prefer an .msi for scripted or managed rollouts? A .msi build is on the same GitHub release.'
+      title: 'Download & Install — free',
+      description: 'Open the .dmg and drag GoFlow to your Applications folder. If macOS shows a Gatekeeper warning ("GoFlow can\'t be opened"), go to System Settings → Privacy & Security → Open Anyway. No account, email, or licence key required.',
+      hint: 'Deploying to a fleet of Macs? A .pkg build for scripted installs is on the same GitHub Release page.'
     },
     {
       id: 'model',
       step: '02',
-      title: 'Download the local model — once',
-      description: 'On first launch TypeMaster fetches the 1.9 GB speech model and stores it on your own disk. This is the only time an internet connection is required.',
-      hint: 'Allow ~2.4 GB of free space for the weights and the local index cache.'
+      title: 'Download the local Core ML model — once',
+      description: 'On first launch GoFlow fetches the ~380 MB Core ML speech model and stores it on your disk. This is the only time an internet connection is needed. On 8 GB Macs, GoFlow asks whether you prefer Standard or Compact model — either works great.',
+      hint: 'Keep ~420 MB of free space for the model weights and local index cache.'
+    },
+    {
+      id: 'permissions',
+      step: '03',
+      title: 'Grant Microphone & Accessibility',
+      description: 'Allow Microphone and Accessibility in System Settings → Privacy & Security. Both are required — Accessibility enables GoFlow\'s global hotkey to work inside every app on your Mac. You only do this once.',
+      hint: 'Accessibility permission is what lets GoFlow type into VS Code, Notion, Slack, and any other app — not just Apple\'s own apps.'
     },
     {
       id: 'setup',
-      step: '03',
-      title: 'Pick your microphone and hotkey',
-      description: 'Open the tray menu and choose your input device. Alt+Space is the default push-to-talk hotkey and can be remapped to any combination you prefer.',
-      hint: 'Windows Settings > Privacy & security > Microphone must allow desktop apps.'
+      step: '04',
+      title: 'Choose your mic & hotkey',
+      description: 'Click the GoFlow icon in your menu bar, pick your input device, and set your global hotkey. The default is ⌥Space (Option + Space) and can be remapped to any combination you prefer.',
+      hint: 'Works with built-in microphones, AirPods, USB headsets, and any Bluetooth microphone.'
     },
     {
       id: 'dictate',
-      step: '04',
+      step: '05',
       title: 'Dictate into any window',
-      description: 'Put your cursor in any text field — Slack, VS Code, Notion, Obsidian, a terminal, an email — hold the hotkey and speak. Text lands in the active window in under 180 ms, punctuated and correctly cased.',
+      description: 'Put your cursor in any text field — Slack, VS Code, Notes, Terminal, an email, anywhere — hold the hotkey and speak. Text lands in under 100ms on Apple Silicon, punctuated and correctly cased.',
       hint: 'Filler words like "um" and "ah" are stripped automatically as you talk.'
     },
     {
-      id: 'tune',
-      step: '05',
-      title: 'Teach it your vocabulary',
-      description: 'Add project names, client names, camelCase variables and technical jargon under Tray Menu > Custom Dictionary, or upload a .txt list. TypeMaster boosts those terms immediately.',
-      hint: 'Ideal for stacks with names like Kubernetes, tRPC or in-house tooling.'
-    },
-    {
-      id: 'speed',
+      id: 'vocabulary',
       step: '06',
-      title: 'Turn on hardware acceleration',
-      description: 'Under Settings > Engine > Hardware Acceleration, select CUDA or DirectML to move inference onto your GPU. On lighter machines, switch to the Fast Quantized model instead.',
-      hint: 'Enable "Keep Neural Weights Resident in RAM" to remove the first-press delay.'
+      title: 'Teach it your vocabulary',
+      description: 'Open Menu Bar → Custom Dictionary. Add camelCase variables, project names, client names, or technical jargon. You can also upload a plain .txt list. GoFlow boosts those terms\' phonetic probability immediately.',
+      hint: 'Perfect for terms like useCallback, tRPC, SwiftUI, or your own product and client names.'
     }
   ],
   systemRequirements: {
-    os: 'Windows 10/11 64-bit',
-    ram: '8 GB RAM minimum (16 GB recommended for high-accuracy Multi-lingual Ultra model)',
-    recommendedRam: '16 GB RAM',
-    processor: 'Intel/AMD CPU with AVX2 instruction support',
-    gpuAcceleration: 'NVIDIA GPU (4GB+ VRAM with CUDA 11.8+) or DirectML. CPU fallback supported.',
-    storage: '2.4 GB free disk space for offline weights and local index cache',
-    microphone: 'Any standard built-in or USB/Bluetooth external microphone',
-    network: '0 kbps (100% offline; internet only required once for initial download)'
+    os: 'macOS 13 Ventura or later (macOS 14 Sonoma+ recommended)',
+    ram: '8 GB unified memory — works perfectly on Apple Silicon · 8 GB RAM on Intel (enable Compact Model Mode)',
+    recommendedRam: '16 GB unified memory',
+    processor: 'Apple Silicon (M1, M2, M3, M4 and all Pro/Max/Ultra variants) · Intel 64-bit with AVX2',
+    gpuAcceleration: 'Apple Silicon: Neural Engine + Core ML (primary) · Intel Mac: CPU inference via AVX2',
+    storage: '~400 MB total (~18 MB app + ~380 MB Core ML model, downloaded once)',
+    microphone: 'Any built-in, USB, or Bluetooth microphone',
+    network: '0 kbps — fully offline after the one-time model download'
   },
   problems: [
     {
-      id: 'mic-permission',
-      title: 'Microphone not capturing in background apps or games',
-      description: 'On Windows 10/11, background accessibility or input monitoring permissions might be blocked by default security sandboxes.',
-      solution: 'Ensure "Allow desktop apps to access your microphone" is toggled ON in Windows Settings > Privacy & security > Microphone.',
-      platform: 'Windows',
+      id: 'gatekeeper',
+      title: 'macOS Gatekeeper warning on first launch',
+      description: 'macOS may show "GoFlow can\'t be opened because Apple cannot verify it" since GoFlow is distributed outside the Mac App Store.',
+      solution: 'Right-click GoFlow in Applications and choose Open, then click Open in the dialog. Alternatively go to System Settings → Privacy & Security → scroll down and click "Open Anyway" next to GoFlow.',
+      platform: 'macOS',
       badge: 'Permissions'
     },
     {
-      id: 'gpu-acceleration',
-      title: 'High CPU utilization during extended voice dictation',
-      description: 'If GPU acceleration is not detected on first launch, TypeMaster defaults to multi-core CPU fallback mode.',
-      solution: 'Go to TypeMaster Settings > Engine > Hardware Acceleration and select "CUDA/DirectML". Alternatively, switch to the "Fast Quantized" model.',
-      platform: 'Windows',
-      badge: 'Hardware'
+      id: 'accessibility',
+      title: 'Global hotkey not working in some apps',
+      description: 'GoFlow\'s global hotkey requires Accessibility permission to inject text into third-party apps like VS Code, Slack, or browsers.',
+      solution: 'Go to System Settings → Privacy & Security → Accessibility and toggle GoFlow ON. If GoFlow is already listed but toggled off, toggle it off and back on, then restart GoFlow.',
+      platform: 'macOS',
+      badge: 'Permissions'
     },
     {
-      id: 'cold-start-lag',
-      title: 'Slight delay on the very first hotkey press',
-      description: 'Loading deep neural weights from cold SSD disk memory into RAM can take 1.2s on initial boot.',
-      solution: 'Toggle ON "Keep Neural Weights Resident in Background RAM" under Advanced Settings so dictation is primed sub-200ms at all times.',
-      platform: 'All',
+      id: 'mic-sleep',
+      title: 'Microphone not detected after Mac wakes from sleep',
+      description: 'macOS occasionally revokes microphone access for menu bar apps after the display sleeps or the Mac locks.',
+      solution: 'Toggle Microphone permission off and back on in System Settings → Privacy & Security → Microphone, then restart GoFlow. Enabling "Keep GoFlow running on login" prevents this on most machines.',
+      platform: 'macOS',
       badge: 'Quick Fix'
     },
     {
-      id: 'jargon-recognition',
-      title: 'Custom programming acronyms or uncommon names misheard',
-      description: 'Standard language models might misinterpret domain-specific terms like "Kubernetes", "tRPC", or proprietary client names.',
-      solution: 'Open the TypeMaster Tray Menu > Custom Dictionary, and enter your key terms or upload a `.txt` list. TypeMaster immediately boosts their phonetic token probabilities.',
-      platform: 'All',
-      badge: 'Customization'
+      id: 'intel-cold-start',
+      title: 'First-press delay (~1.5s) on Intel Macs',
+      description: 'On Intel Macs, loading the neural model from disk into RAM on first use takes up to 1.5 seconds.',
+      solution: 'Enable "Keep Model Resident in RAM" under GoFlow → Settings → Advanced. This primes the model on launch so every subsequent hotkey press is instant.',
+      platform: 'macOS',
+      badge: 'Quick Fix'
+    },
+    {
+      id: 'bluetooth-drop',
+      title: 'Bluetooth mic drops during dictation in low battery mode',
+      description: 'When a Bluetooth headset enters power-saving mode due to low battery or extended silence, macOS may hand off the audio source mid-sentence.',
+      solution: 'Keep your Bluetooth mic charged above 20% for dictation sessions, or switch to the built-in microphone as a fallback in GoFlow → Menu Bar → Input Device.',
+      platform: 'macOS',
+      badge: 'Hardware'
     }
   ]
 };
@@ -119,40 +131,40 @@ export const TYPEMASTER_APP: AppItem = {
 export const INITIAL_UPDATE_REQUESTS: UpdateRequestItem[] = [
   {
     id: 'req-1',
-    title: 'Custom Hotkey Voice Macro Triggers (e.g., "Insert Git Commit Template")',
-    description: 'Allow users to say custom voice triggers that expand into pre-configured multi-line snippets directly into the active editor.',
-    category: 'Feature',
-    votes: 184,
-    status: 'In Progress',
-    tag: 'v1.5 Roadmap'
+    title: 'macOS Shortcuts App Integration — trigger GoFlow flows via Shortcuts',
+    description: 'Native Shortcuts actions to start/stop dictation, switch languages, and insert vocabulary expansions from any Shortcut or Focus mode.',
+    category: 'Integration',
+    votes: 201,
+    status: 'Planned',
+    tag: 'v1.2 Roadmap'
   },
   {
     id: 'req-2',
-    title: 'Whisper Large v3 Turbo Quantized Model Pack',
-    description: 'Add optional 4-bit quantized Turbo model weights to cut memory footprint down to only 900MB RAM with 99.1% accuracy.',
+    title: 'Whisper Large v3 Turbo — Core ML 4-bit quantized (~200 MB)',
+    description: 'Add an optional ultra-compact Core ML model pack that halves disk usage to ~200 MB while maintaining 99.1% accuracy on Apple Silicon.',
     category: 'Model',
-    votes: 219,
-    status: 'Planned',
+    votes: 256,
+    status: 'In Progress',
     tag: 'Performance'
   },
   {
     id: 'req-3',
-    title: 'Multi-Language Auto-Switching Pack (Spanish, French, German, Japanese)',
-    description: 'Real-time multilingual language switching without manually changing model settings between sentences.',
+    title: 'Multi-Language Auto-Switching (Spanish, French, Japanese, Hindi)',
+    description: 'Real-time multilingual detection and switching without manually changing the active model or language setting between sentences.',
     category: 'Language',
-    votes: 312,
+    votes: 338,
     status: 'In Progress',
     tag: 'Localization'
   },
   {
     id: 'req-4',
-    title: 'Raycast & Alfred Direct Workflow Integration',
-    description: 'Native script commands to stream transcription directly into Raycast and Alfred search bars and actions.',
+    title: 'Raycast Extension — stream transcription directly into Raycast',
+    description: 'A native Raycast extension that pipes GoFlow voice output directly into the Raycast search bar and any Raycast-compatible action.',
     category: 'Integration',
-    votes: 97,
+    votes: 114,
     status: 'Under Review',
     tag: 'Ecosystem'
   }
 ];
 
-export const FEATURED_APP = TYPEMASTER_APP;
+export const FEATURED_APP = GOFLOW_APP;

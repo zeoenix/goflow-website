@@ -247,10 +247,10 @@ export const SubmitAppModal: React.FC<SubmitAppModalProps> = ({ isOpen, onClose 
             </div>
 
             <h3 className="font-serif-display text-gr-sub font-bold mb-1">
-              Submit Your App to keepware
+              Submit Your Mac App to zeoenix
             </h3>
             <p className="text-gr-base mb-5">
-              We are curating high-quality, local-first apps to expand beyond TypeMaster. 90% revenue share to creators.
+              We are curating high-quality, open source, local-first Mac apps to expand beyond GoFlow. 90% revenue share to creators.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">

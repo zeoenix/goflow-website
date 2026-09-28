@@ -3,8 +3,8 @@ import { BookOpen, Lightbulb } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Surface } from '../Surface';
 import { Chip } from '../Chip';
-import { TYPEMASTER_APP } from '../../data/appsData';
-import { TYPEMASTER_MSI_URL } from '../../lib/typemasterDownload';
+import { GOFLOW_APP } from '../../data/appsData';
+import { GOFLOW_INTEL_URL } from '../../lib/goflowDownload';
 
 export const UsageGuide: React.FC = () => {
   return (
@@ -15,23 +15,22 @@ export const UsageGuide: React.FC = () => {
             How to use it
           </Chip>
           <h2 className="font-serif-display text-display font-bold tracking-tight mb-4">
-            From installer to first sentence.
+            From download to first sentence.
           </h2>
           <p className="text-muted text-base sm:text-lg leading-relaxed">
-            Six steps to get TypeMaster {TYPEMASTER_APP.version} dictating into every app on your machine. Rolling
-            it out to multiple machines?{' '}
+            Six steps to get GoFlow {GOFLOW_APP.version} flowing into every app on your Mac. Deploying to a fleet?{' '}
             <a
-              href={TYPEMASTER_MSI_URL}
+              href={GOFLOW_INTEL_URL}
               className="underline underline-offset-2 hover:text-text organic-transition"
             >
-              Download the .msi installer
+              Download the Intel .dmg
             </a>{' '}
-            instead.
+            or grab the .pkg from the same GitHub Release.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {TYPEMASTER_APP.usageGuide.map((item) => (
+          {GOFLOW_APP.usageGuide.map((item) => (
             <Surface key={item.id} tone="dark" className="glass-card p-6 sm:p-8 rounded-3xl h-full flex flex-col">
               <motion.div whileHover={{ y: -5 }} className="flex flex-col h-full">
                 <div className="w-12 h-12 bg-border rounded-xl flex items-center justify-center mb-6">

@@ -4,45 +4,41 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Surface } from '../../components/Surface';
 import { Chip } from '../../components/Chip';
 
-interface FaqItem {
-  q: string;
-  a: string;
-}
+interface FaqItem { q: string; a: string; }
 
 const FAQS: FaqItem[] = [
   {
-    q: 'How does TypeMaster achieve 100% offline speech recognition without sending audio to the cloud?',
-    a: 'TypeMaster packages a heavily optimized neural speech recognition model that runs natively via NVIDIA CUDA / DirectML (Windows). When you press your global hotkey, the audio stream is converted into text tokens entirely inside your local system RAM. Your microphone audio never touches the internet.'
+    q: 'How does GoFlow achieve 100% offline speech recognition without sending audio to the cloud?',
+    a: 'GoFlow runs a Core ML optimized neural speech model directly on your Mac using the Apple Neural Engine (Apple Silicon) or CPU inference (Intel). When you press your global hotkey, your audio is converted into text entirely inside your Mac\'s memory. Not a single byte of audio reaches the internet.'
   },
   {
-    q: 'Is TypeMaster really free? Are there recurring subscriptions?',
-    a: 'Yes, completely free. Zero subscriptions. Ever. Download TypeMaster and use it for life, including all future patch releases, performance improvements, and local model weight fine-tunes. You receive standalone installer binaries with no DRM lock-in.'
+    q: 'Is GoFlow really free? Are there any subscriptions?',
+    a: 'Yes — completely free and open source. Forever. Download GoFlow and use it for life, including all future updates and Core ML model improvements. No DRM, no licence keys, no account required.'
   },
   {
-    q: 'Can I use TypeMaster on multiple personal computers?',
-    a: 'Yes. You can install TypeMaster on as many personal machines as you own (e.g. your desktop workstation, personal laptop, and work machine).'
+    q: 'Does GoFlow work on my 8 GB Mac?',
+    a: 'Yes, perfectly. Apple Silicon\'s unified memory architecture makes 8 GB far more capable than traditional systems. GoFlow\'s Core ML model uses only ~300–380 MB of memory. For 8 GB Intel Macs, GoFlow auto-suggests Compact Model Mode on first launch for the smoothest experience.'
   },
   {
-    q: 'What if TypeMaster does not run smoothly on my specific hardware setup?',
-    a: 'TypeMaster is engineered for maximum performance across modern 64-bit Windows systems. If you have any questions regarding your CPU, GPU, or microphone setup, contact support@keepware.app for dedicated assistance.'
+    q: 'Can I install GoFlow on multiple Macs?',
+    a: 'Yes. Install GoFlow on as many personal Macs as you own — your desktop, laptop, and work machine. It\'s open source and completely DRM-free.'
   },
   {
-    q: 'Can I commission a custom offline app or request specialized features?',
-    a: 'Yes! We actively build custom local-first desktop software for teams and power users. Use the "Request a Custom App or Project" section below or email us directly at build@keepware.app.'
+    q: 'What if GoFlow\'s global hotkey does not work in a specific app?',
+    a: 'The most common cause is a missing Accessibility permission. Go to System Settings → Privacy & Security → Accessibility and make sure GoFlow is toggled ON. If already listed, toggle it off and back on, then restart GoFlow.'
+  },
+  {
+    q: 'Can I commission a custom offline Mac app or request specialized features?',
+    a: 'Yes. zeoenix actively builds custom local-first Mac software for teams and power users. Visit the Custom Work page or email build@zeoenix.app directly.'
   }
 ];
 
 export const FaqSection: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
-
-  const toggleFaq = (idx: number) => {
-    setOpenIdx(openIdx === idx ? null : idx);
-  };
+  const toggleFaq = (idx: number) => setOpenIdx(openIdx === idx ? null : idx);
 
   return (
     <section id="faq" className="py-20 sm:py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10">
-      
-      {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <Chip surface="light" icon={<HelpCircle className="w-4 h-4" />} className="mb-3">
           Answers & Details
@@ -51,11 +47,10 @@ export const FaqSection: React.FC = () => {
           Frequently Asked Questions
         </h2>
         <p className="text-gr-base text-muted leading-relaxed">
-          Everything you need to know about TypeMaster, keepware's offline architecture, licensing, and support.
+          Everything you need to know about GoFlow, zeoenix's offline architecture, open source licensing, and macOS support.
         </p>
       </div>
 
-      {/* FAQ Accordion */}
       <div className="space-y-3.5 mb-10">
         {FAQS.map((faq, idx) => {
           const isOpen = openIdx === idx;
@@ -70,14 +65,11 @@ export const FaqSection: React.FC = () => {
                 onClick={() => toggleFaq(idx)}
                 className="w-full px-5 sm:px-6 py-4 flex items-center justify-between text-left gap-4 cursor-pointer focus-ring"
               >
-                <span className="font-semibold text-gr-base ">
-                  {faq.q}
-                </span>
+                <span className="font-semibold text-gr-base">{faq.q}</span>
                 <span className="text-muted shrink-0">
                   {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </span>
               </button>
-              
               <AnimatePresence initial={false}>
                 {isOpen && (
                   <motion.div
@@ -97,27 +89,23 @@ export const FaqSection: React.FC = () => {
         })}
       </div>
 
-      {/* Direct Email Support CTA Block */}
       <Surface tone="dark" className="glass-card rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-border">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-2xl bg-border text-muted flex items-center justify-center shrink-0">
             <Mail className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="font-serif-display text-gr-sub font-bold mb-1">
-              Have a question not answered here?
-            </h3>
+            <h3 className="font-serif-display text-gr-sub font-bold mb-1">Have a question not answered here?</h3>
             <p className="text-gr-base text-muted max-w-md leading-relaxed">
-              Drop our founders and core engineering team an email directly. We reply within 24 hours.
+              Drop the zeoenix team an email. We reply within 24 hours.
             </p>
           </div>
         </div>
-
         <a
-          href="mailto:support@keepware.app?subject=Question%20about%20TypeMaster"
+          href="mailto:support@zeoenix.app?subject=Question%20about%20GoFlow"
           className="w-full sm:w-auto px-6 py-3 bg-border hover:bg-border font-bold text-gr-base rounded-xl organic-transition shadow-md flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer focus-ring"
         >
-          <span>Email support@keepware.app</span>
+          <span>support@zeoenix.app</span>
           <ArrowRight className="w-4 h-4 text-muted" />
         </a>
       </Surface>

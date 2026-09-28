@@ -1,6 +1,6 @@
 {
-  "name": "keepware",
-  "description": "Curated home for standalone, local-first perpetual software. Featuring TypeMaster — on-device speech-to-text with zero subscriptions.",
+  "name": "goflow",
+  "description": "GoFlow by zeoenix — free, open source, 100% on-device voice-to-text for macOS. Apple Silicon native. Zero cloud. Zero data collected.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

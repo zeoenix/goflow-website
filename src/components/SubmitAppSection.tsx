@@ -26,7 +26,7 @@ export const SubmitAppSection: React.FC<SubmitAppSectionProps> = ({ onOpenSubmit
         </h2>
 
         <p className="text-gr-base max-w-2xl mx-auto leading-relaxed mb-8">
-          <strong>keepware</strong> is currently showcasing TypeMaster, and we are opening up curation for more standalone, one-time-purchase desktop utilities soon. If your software respects privacy, runs locally, and rejects monthly subscription models, we'd love to feature you.
+          <strong>zeoenix</strong> is currently showcasing GoFlow, and we are opening up curation for more open source, standalone macOS utilities soon. If your software respects privacy, runs locally, and rejects subscription models, we'd love to feature you.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

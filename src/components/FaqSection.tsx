@@ -9,24 +9,28 @@ interface FaqItem {
 
 const FAQS: FaqItem[] = [
   {
-    q: 'How does TypeMaster achieve 100% offline speech recognition without sending audio to the cloud?',
-    a: 'TypeMaster packages a heavily optimized neural speech recognition model that runs natively via NVIDIA CUDA / DirectML (Windows). When you press your global hotkey, the audio stream is converted into text tokens entirely inside your local system RAM. Your microphone audio never touches the internet.'
+    q: 'How does GoFlow achieve 100% offline speech recognition without sending audio to the cloud?',
+    a: 'GoFlow runs a Core ML optimized neural speech model directly on your Mac using the Apple Neural Engine (on Apple Silicon) or CPU inference (on Intel). When you press your global hotkey, your audio is transcribed entirely inside your Mac\'s memory. Not a single byte of audio reaches the internet.'
   },
   {
-    q: 'Is TypeMaster really free? Are there recurring subscriptions?',
-    a: 'Yes, completely free. Zero subscriptions. Ever. Download TypeMaster and use it for life, including all future patch releases, performance improvements, and local model weight fine-tunes. You receive standalone installer binaries with no DRM lock-in.'
+    q: 'Is GoFlow really free? Are there any subscriptions?',
+    a: 'Yes — completely free and open source. Forever. Download GoFlow and use it for life, including all future updates, Core ML model improvements, and new language packs. No DRM, no licence keys, no account required.'
   },
   {
-    q: 'Can I use TypeMaster on multiple personal computers?',
-    a: 'Yes. You can install TypeMaster on as many personal machines as you own (e.g. your desktop workstation, personal laptop, and work machine).'
+    q: 'Does GoFlow work on my 8 GB Mac?',
+    a: 'Yes, perfectly. Apple Silicon\'s unified memory architecture makes 8 GB far more capable than traditional 8 GB systems. GoFlow\'s Core ML model uses only ~300–380 MB of memory, leaving the rest free for your other apps. For 8 GB Intel Macs, GoFlow auto-suggests enabling Compact Model Mode on first launch for the smoothest experience.'
   },
   {
-    q: 'What if TypeMaster does not run smoothly on my specific hardware setup?',
-    a: 'TypeMaster is engineered for maximum performance across modern 64-bit Windows systems. If you have any questions regarding your CPU, GPU, or microphone setup, contact support@keepware.app for dedicated assistance.'
+    q: 'Can I install GoFlow on multiple Macs?',
+    a: 'Yes. Install GoFlow on as many personal Macs as you own — your desktop, laptop, and work machine. It\'s open source and DRM-free.'
   },
   {
-    q: 'Can I commission a custom offline app or request specialized features?',
-    a: 'Yes! We actively build custom local-first desktop software for teams and power users. Use the "Request a Custom App or Project" section below or email us directly at build@keepware.app.'
+    q: 'What should I do if GoFlow\'s global hotkey does not work in a specific app?',
+    a: 'The most common cause is a missing Accessibility permission. Go to System Settings → Privacy & Security → Accessibility and make sure GoFlow is toggled ON. If it\'s already listed, toggle it off and back on, then restart GoFlow.'
+  },
+  {
+    q: 'Can I commission a custom offline Mac app or request specialized features?',
+    a: 'Yes. zeoenix actively builds custom local-first Mac software for teams and power users. Use the Custom Work page or email build@zeoenix.app directly.'
   }
 ];
 
@@ -50,7 +54,7 @@ export const FaqSection: React.FC = () => {
           Frequently Asked Questions
         </h2>
         <p className="text-gr-base leading-relaxed">
-          Everything you need to know about TypeMaster, keepware's offline architecture, licensing, and support.
+          Everything you need to know about GoFlow, zeoenix's offline architecture, licensing, and support.
         </p>
       </div>
 
@@ -97,7 +101,7 @@ export const FaqSection: React.FC = () => {
         })}
       </div>
 
-      {/* Direct Email Support CTA Block (As instructed: people can email us) */}
+      {/* Direct Email Support CTA Block */}
       <div className="surface-dark rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-2xl bg-border flex items-center justify-center shrink-0">
@@ -114,10 +118,10 @@ export const FaqSection: React.FC = () => {
         </div>
 
         <a
-          href="mailto:support@keepware.app?subject=Question%20about%20TypeMaster"
+          href="mailto:support@zeoenix.app?subject=Question%20about%20GoFlow"
           className="w-full sm:w-auto px-6 py-3 surface-light hover:surface-light font-bold text-gr-base rounded-xl transition-all shadow-md flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
         >
-          <span>Email support@keepware.app</span>
+          <span>Email support@zeoenix.app</span>
           <ArrowRight className="w-4 h-4 " />
         </a>
       </div>

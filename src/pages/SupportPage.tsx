@@ -10,13 +10,12 @@ export default function SupportPage() {
           Support & Troubleshooting
         </h1>
         <p className="text-gr-title text-muted">
-          Find solutions to common issues, hardware constraints, or contact us directly.
+          Find solutions to common macOS issues, permissions, and hardware setup — or reach us directly.
         </p>
       </div>
-      
+
       <div className="max-w-3xl mx-auto w-full grid gap-6">
-        
-        {/* Contact Support */}
+
         <div className="glass-card rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-border">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-2xl bg-border text-muted flex items-center justify-center shrink-0">
@@ -27,20 +26,19 @@ export default function SupportPage() {
                 Email direct support
               </h3>
               <p className="text-gr-base text-muted max-w-md leading-relaxed">
-                Drop our founders and core engineering team an email directly. We reply within 24 hours.
+                Drop the zeoenix team an email directly. We reply within 24 hours.
               </p>
             </div>
           </div>
           <a
-            href="mailto:support@keepware.app"
+            href="mailto:support@zeoenix.app"
             className="w-full sm:w-auto px-6 py-3 bg-border hover:bg-border font-bold text-gr-base rounded-xl organic-transition shadow-md flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer focus-ring"
           >
-            <span>support@keepware.app</span>
+            <span>support@zeoenix.app</span>
             <ArrowRight className="w-4 h-4 text-muted" />
           </a>
         </div>
 
-        {/* Known Issues link */}
         <Link to="/docs/known-issues" className="glass-card rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-border focus-ring">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-2xl bg-border text-btn-bg flex items-center justify-center shrink-0">
@@ -51,7 +49,7 @@ export default function SupportPage() {
                 Known Issues & Bug Tracker
               </h3>
               <p className="text-gr-base text-muted max-w-md leading-relaxed">
-                Check here to see transparent tracking of current bugs, workarounds, and patch statuses.
+                Transparent tracking of current GoFlow bugs, macOS compatibility notes, workarounds, and patch statuses.
               </p>
             </div>
           </div>
@@ -60,7 +58,7 @@ export default function SupportPage() {
             <ArrowRight className="w-4 h-4 text-muted" />
           </div>
         </Link>
-        
+
       </div>
     </div>
   );

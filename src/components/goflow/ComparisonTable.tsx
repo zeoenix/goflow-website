@@ -11,26 +11,24 @@ export const ComparisonTable: React.FC = () => {
         </h2>
 
         <Surface tone="dark" className="glass-card rounded-3xl overflow-hidden shadow-soft">
-          {/* Header Row */}
-          <div className="grid grid-cols-3 bg-border border-b border-border p-4 sm:p-6 font-bold ">
+          <div className="grid grid-cols-3 bg-border border-b border-border p-4 sm:p-6 font-bold">
             <div className="col-span-1">Feature</div>
-            <div className="col-span-1 text-center text-btn-bg">TypeMaster</div>
+            <div className="col-span-1 text-center text-btn-bg">GoFlow</div>
             <div className="col-span-1 text-center text-muted">Cloud Dictation</div>
           </div>
 
-          {/* Rows */}
           <div className="divide-y divide-surface-border text-sm sm:text-base">
             <div className="grid grid-cols-3 p-4 sm:p-6 items-center">
               <div className="col-span-1 font-semibold pr-2">Price</div>
               <div className="col-span-1 text-center font-bold font-mono text-xs sm:text-sm">
-                <span className="text-btn-bg">Free</span>
+                <span className="text-btn-bg">Free forever</span>
               </div>
               <div className="col-span-1 text-center text-muted font-mono text-xs sm:text-sm">$12/mo</div>
             </div>
 
             <div className="grid grid-cols-3 p-4 sm:p-6 items-center">
               <div className="col-span-1 font-semibold pr-2">Where it runs</div>
-              <div className="col-span-1 text-center text-btn-bg font-bold leading-tight">100% on your PC</div>
+              <div className="col-span-1 text-center text-btn-bg font-bold leading-tight">100% on your Mac</div>
               <div className="col-span-1 text-center text-muted leading-tight">External servers</div>
             </div>
 
@@ -55,6 +53,26 @@ export const ComparisonTable: React.FC = () => {
                 <span className="flex items-center gap-1 sm:gap-1.5">
                   <X className="w-4 h-4 sm:w-5 sm:h-5" /> Yes
                 </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 p-4 sm:p-6 items-center">
+              <div className="col-span-1 font-semibold pr-2">Apple Silicon optimized</div>
+              <div className="col-span-1 flex justify-center text-btn-bg">
+                <Check className="w-5 h-5" />
+              </div>
+              <div className="col-span-1 flex justify-center text-muted">
+                <X className="w-5 h-5" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 p-4 sm:p-6 items-center">
+              <div className="col-span-1 font-semibold pr-2">Open source</div>
+              <div className="col-span-1 flex justify-center text-btn-bg">
+                <Check className="w-5 h-5" />
+              </div>
+              <div className="col-span-1 flex justify-center text-muted">
+                <X className="w-5 h-5" />
               </div>
             </div>
           </div>

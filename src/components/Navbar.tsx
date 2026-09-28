@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, ChevronDown, Code2, HelpCircle, Route, FileWarning } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
-import { KeepwareLogo } from './KeepwareLogo';
+
 import { FEATURED_APP } from '../data/appsData';
 
 interface NavbarProps {
@@ -15,23 +15,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const isProductPage = location.pathname.startsWith('/typemaster') || location.pathname.startsWith(`/${FEATURED_APP.id}`);
+  const isProductPage = location.pathname.startsWith('/goflow') || location.pathname.startsWith(`/${FEATURED_APP.id}`);
 
-  // Close dropdown and mobile menu on route change
   useEffect(() => {
     setIsServicesOpen(false);
     setIsMobileOpen(false);
     setIsMobileServicesOpen(false);
   }, [location.pathname]);
 
-  // Click outside to close desktop dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsServicesOpen(false);
       }
     };
-
     if (isServicesOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
@@ -41,54 +38,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
   }, [isServicesOpen]);
 
   const serviceItems = [
-    {
-      label: 'Custom Work',
-      to: '/custom-work',
-      icon: Code2,
-      type: 'link' as const,
-    },
-    {
-      label: 'Support',
-      to: '/support',
-      icon: HelpCircle,
-      type: 'link' as const,
-    },
-    {
-      label: 'Roadmap',
-      to: '/roadmap',
-      icon: Route,
-      type: 'link' as const,
-    },
-    {
-      label: 'Known Issues',
-      to: '/docs/known-issues',
-      icon: FileWarning,
-      type: 'link' as const,
-    },
+    { label: 'Custom Work', to: '/custom-work', icon: Code2, type: 'link' as const },
+    { label: 'Support', to: '/support', icon: HelpCircle, type: 'link' as const },
+    { label: 'Roadmap', to: '/roadmap', icon: Route, type: 'link' as const },
+    { label: 'Known Issues', to: '/docs/known-issues', icon: FileWarning, type: 'link' as const },
   ];
 
   return (
     <>
       <header className="fixed top-3 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none">
         <div className="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto surface-dark glass-pill rounded-full px-4 sm:px-6 py-2.5 shadow-pill organic-transition relative">
-          
-          {/* Brand Logo - keepware */}
+
           <Link to="/" className="flex items-center gap-2.5 group focus-ring rounded-full">
             <motion.div
               whileHover={{ scale: 1.1, rotate: 4 }}
               whileTap={{ scale: 0.95 }}
               className="w-9 h-9 rounded-full surface-light bg-bg flex items-center justify-center shadow-sm shrink-0 p-1.5"
             >
-              <KeepwareLogo className="w-full h-full " veinColor="#F5F1E8" />
+              <img src="/logo.svg" alt="GoFlow logo" className="w-full h-full object-contain" />
             </motion.div>
             <div className="flex items-baseline gap-2">
               <span className="font-serif-display font-bold text-gr-sub tracking-tight">
-                keepware
+                GoFlow
               </span>
             </div>
           </Link>
 
-          {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-6 text-gr-base font-medium text-muted">
             <Link
               to={`/${FEATURED_APP.id}`}
@@ -104,7 +79,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
               Pricing
             </Link>
 
-            {/* Services Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 type="button"
@@ -154,9 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
             </div>
           </nav>
 
-          {/* Right Action Items */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Desktop Action Button */}
             {isProductPage ? (
               <button
                 onClick={onDownload}
@@ -179,7 +151,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
               </button>
             )}
 
-            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               aria-label="Toggle navigation menu"
@@ -190,7 +161,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
           </div>
         </div>
 
-        {/* Mobile Drawer */}
         <AnimatePresence>
           {isMobileOpen && (
             <motion.div
@@ -224,7 +194,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
                   Pricing
                 </Link>
 
-                {/* Mobile Services Accordion */}
                 <div className="pt-2 border-t border-border mt-1">
                   <button
                     type="button"
@@ -233,9 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
                   >
                     <span>Services</span>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        isMobileServicesOpen ? 'rotate-180' : ''
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
 
@@ -270,10 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
                 <div className="pt-3 border-t border-border mt-2">
                   {isProductPage ? (
                     <button
-                      onClick={() => {
-                        setIsMobileOpen(false);
-                        onDownload();
-                      }}
+                      onClick={() => { setIsMobileOpen(false); onDownload(); }}
                       className="w-full bg-btn-bg text-btn-text font-bold py-2.5 rounded-full shadow-md text-center"
                     >
                       Download {FEATURED_APP.name} — Free

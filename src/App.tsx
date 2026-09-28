@@ -3,29 +3,23 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { AppDetailsModal } from './components/Modals';
-import { TYPEMASTER_APP } from './data/appsData';
-import { downloadTypeMaster } from './lib/typemasterDownload';
+import { GOFLOW_APP } from './data/appsData';
+import { downloadGoFlow } from './lib/goflowDownload';
 
 // Pages
 import HomePage from './pages/HomePage';
-import TypeMasterPage from './pages/TypeMasterPage';
+import GoFlowPage from './pages/GoFlowPage';
 import SupportPage from './pages/SupportPage';
 import RoadmapPage from './pages/RoadmapPage';
 import CustomWorkPage from './pages/CustomWorkPage';
 import ForDevelopersPage from './pages/ForDevelopersPage';
 import KnownIssuesPage from './pages/KnownIssuesPage';
 
-/**
- * Scrolls to the hash target on navigation, or to the top when there is no hash.
- * Without this a SPA route change keeps the previous scroll position and
- * cross-page anchors like /typemaster#pricing never scroll anywhere.
- */
 function ScrollManager() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (hash) {
-      // Let the destination route paint before looking for the target.
       const id = hash.slice(1);
       const raf = requestAnimationFrame(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -46,16 +40,13 @@ export default function App() {
       <ScrollManager />
       <div className="min-h-screen relative flex flex-col">
         <div className="noise-overlay"></div>
-        {/* Sticky Floating Navbar */}
-        <Navbar
-          onDownload={downloadTypeMaster}
-        />
+        <Navbar onDownload={() => downloadGoFlow('apple-silicon')} />
         <main className="flex-1 relative z-10 pb-24 sm:pb-0">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/typemaster" element={
-              <TypeMasterPage 
-                onDownload={downloadTypeMaster}
+            <Route path="/goflow" element={
+              <GoFlowPage
+                onDownload={() => downloadGoFlow('apple-silicon')}
                 onOpenDetailsModal={() => setIsDetailsModalOpen(true)}
               />
             } />
@@ -67,15 +58,14 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
-        
-        {/* Global Modals */}
+
         <AppDetailsModal
-          app={TYPEMASTER_APP}
+          app={GOFLOW_APP}
           isOpen={isDetailsModalOpen}
           onClose={() => setIsDetailsModalOpen(false)}
           onBuy={() => {
             setIsDetailsModalOpen(false);
-            downloadTypeMaster();
+            downloadGoFlow('apple-silicon');
           }}
         />
       </div>

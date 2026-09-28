@@ -11,11 +11,11 @@ export default function ForDevelopersPage() {
         <h1 className="font-serif-display text-gr-display font-bold tracking-tight mb-4">
           Indie Developer Curation
         </h1>
-        <p className="text-gr-base ">
-          Submit your subscription-free desktop utility to the keepware storefront.
+        <p className="text-gr-base">
+          Submit your open source, local-first Mac utility to the zeoenix platform.
         </p>
       </div>
-      
+
       <div className="rounded-3xl overflow-hidden max-w-5xl mx-auto w-full">
         <SubmitAppSection onOpenSubmitModal={() => setIsSubmitModalOpen(true)} />
       </div>

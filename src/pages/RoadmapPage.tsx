@@ -8,8 +8,8 @@ export default function RoadmapPage() {
         <h1 className="font-serif-display text-gr-display font-bold tracking-tight mb-4">
           Community Roadmap
         </h1>
-        <p className="text-gr-base ">
-          Upvote the features you want prioritized or request a new integration.
+        <p className="text-gr-base">
+          Upvote the GoFlow features you want prioritized or request a new integration, model, or language pack.
         </p>
       </div>
       <AskForUpdatesSection />

@@ -8,8 +8,8 @@ export default function CustomWorkPage() {
         <h1 className="font-serif-display text-gr-display font-bold tracking-tight mb-4">
           Custom Engineering
         </h1>
-        <p className="text-gr-base ">
-          Hire our team for bespoke local-first software development.
+        <p className="text-gr-base">
+          Hire the zeoenix team for bespoke local-first Mac software development.
         </p>
       </div>
       <RequestProjectSection />

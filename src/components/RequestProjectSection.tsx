@@ -62,7 +62,7 @@ export const RequestProjectSection: React.FC = () => {
             Request a Custom App or Project
           </h2>
           <p className="text-gr-base leading-relaxed">
-            Need a custom local-first desktop application, private offline tool, or specialized workflow built for your team? Commission custom software directly from keepware Labs.
+            Need a custom local-first Mac application, private offline tool, or specialized workflow built for your team? Commission custom software directly from zeoenix.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ export const RequestProjectSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-5">
             <div className="surface-light rounded-3xl p-6 sm:p-7 border border-border shadow-sm space-y-4">
               <h3 className="font-serif-display text-gr-sub font-bold ">
-                Why build with keepware?
+                Why build with zeoenix?
               </h3>
               
               <ul className="space-y-3.5 text-gr-base ">
@@ -92,7 +92,7 @@ export const RequestProjectSection: React.FC = () => {
                   </div>
                   <div>
                     <strong className="block ">Native Hardware Acceleration</strong>
-                    Optimized for Apple Silicon Metal Neural Engine, NVIDIA CUDA, and multi-core CPU architectures.
+                    Optimized for Apple Silicon Neural Engine, Core ML, and Intel CPU architectures.
                   </div>
                 </li>
 
@@ -119,10 +119,10 @@ export const RequestProjectSection: React.FC = () => {
                 <p className="text-gr-base text-muted">Email our engineering lead directly.</p>
               </div>
               <a
-                href="mailto:build@keepware.app?subject=Custom%20Project%20Inquiry"
+                href="mailto:build@zeoenix.app?subject=Custom%20Project%20Inquiry"
                 className="px-4 py-2 surface-light hover:bg-border text-gr-base font-bold rounded-xl whitespace-nowrap transition-colors"
               >
-                build@keepware.app
+                build@zeoenix.app
               </a>
             </div>
           </div>

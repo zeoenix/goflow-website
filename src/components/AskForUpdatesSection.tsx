@@ -113,7 +113,7 @@ export const AskForUpdatesSection: React.FC = () => {
             Ask for Updates & Feature Requests
           </h2>
           <p className="text-gr-base leading-relaxed">
-            Every keepware perpetual license includes lifetime core updates. Upvote features you want prioritized or request a new model or language pack.
+            GoFlow is free and open source — and every update ships to all users automatically. Upvote the features you want prioritized or request a new model, integration, or language pack.
           </p>
         </div>
 
@@ -203,7 +203,7 @@ export const AskForUpdatesSection: React.FC = () => {
               What should we build next?
             </h3>
             <p className="text-gr-base mb-5">
-              Have an idea for a custom workflow, specialized vocabulary model, or editor plugin? Let the keepware team know.
+              Have an idea for a macOS workflow integration, a specialized vocabulary model, or a new editor plugin? Let the zeoenix team know.
             </p>
 
             {isSubmitted && (

@@ -8,7 +8,7 @@ export const TheProblem: React.FC = () => {
           Cloud dictation tools are broken.
         </h2>
         <p className="text-gr-title leading-relaxed">
-          Sending your microphone audio to external servers exposes your private conversations to data harvesting. It introduces noticeable network lag that breaks your typing flow, and locks your own hardware behind a $12/month subscription paywall for a feature your PC can already run locally.
+          Siri Dictation drops words, struggles with technical vocabulary, and requires an internet connection. Cloud-based alternatives upload every word you speak to external servers, introduce noticeable network lag that breaks your flow, and charge $12 a month for a feature your Mac can already run locally — faster, privately, and completely offline.
         </p>
       </div>
     </section>
