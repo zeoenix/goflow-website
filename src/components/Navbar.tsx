@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, ChevronDown, Code2, HelpCircle, Route, FileWarning } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { FEATURED_APP } from '../data/appsData';
@@ -16,6 +16,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const isProductPage = location.pathname.startsWith('/goflow') || location.pathname.startsWith(`/${FEATURED_APP.id}`);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const navY = useTransform(scrollY, [0, 120], [0, shouldReduceMotion ? 0 : -36]);
+  const navOpacity = useTransform(scrollY, [0, 110], [1, shouldReduceMotion ? 1 : 0]);
 
   useEffect(() => {
     setIsServicesOpen(false);
@@ -46,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
 
   return (
     <>
-      <header className="absolute top-3 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none">
+      <motion.header style={{ y: navY, opacity: navOpacity }} className="absolute top-3 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none">
         <div className="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto surface-dark glass-pill rounded-full px-4 sm:px-6 py-2.5 shadow-pill organic-transition relative">
 
           <Link to="/" className="flex items-center gap-2.5 group focus-ring rounded-full">
@@ -262,7 +266,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
+      </motion.header>
     </>
   );
 };
