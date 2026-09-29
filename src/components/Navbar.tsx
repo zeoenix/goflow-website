@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onDownload }) => {
 
   return (
     <>
-      <header className="fixed top-3 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none">
+      <header className="absolute top-3 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none">
         <div className="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto surface-dark glass-pill rounded-full px-4 sm:px-6 py-2.5 shadow-pill organic-transition relative">
 
           <Link to="/" className="flex items-center gap-2.5 group focus-ring rounded-full">
