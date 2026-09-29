@@ -1,6 +1,6 @@
 import React from 'react';
 import { WifiOff, ShieldCheck, Apple } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { Chip } from '../Chip';
 import { downloadGoFlow } from '../../lib/goflowDownload';
 
@@ -10,8 +10,17 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onDownload }) => {
+  const heroRef = React.useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, shouldReduceMotion ? 0 : -72]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, shouldReduceMotion ? 1 : 0]);
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-start pt-28 sm:pt-36 pb-20 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start pt-28 sm:pt-36 pb-20 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden">
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none z-0">
         <picture>
           <source srcSet="/typemaster.webp" type="image/webp" />
@@ -32,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onDownload }) => {
         </picture>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-start text-left">
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-start text-left">
         <div className="max-w-xl flex flex-col items-start max-md:w-full max-md:bg-white/95 max-md:backdrop-blur-md max-md:p-5 sm:max-md:p-7 max-md:rounded-3xl max-md:border max-md:border-[#17532F]/15 max-md:shadow-xl">
 
           <motion.div
@@ -116,7 +125,7 @@ export const Hero: React.FC<HeroProps> = ({ onDownload }) => {
           </motion.div>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

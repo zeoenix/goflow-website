@@ -7,7 +7,7 @@
  */
 
 const RELEASE_TAG = 'v1.0.0';
-const RELEASE_BASE = `https://github.com/zeoenix/goflow/releases/download/${RELEASE_TAG}`;
+const RELEASE_BASE = `https://github.com/zeoenix/goflow-website/releases/download/${RELEASE_TAG}`;
 
 export const GOFLOW_APPLE_SILICON_URL = `${RELEASE_BASE}/GoFlow-1.0.0-AppleSilicon.dmg`;
 export const GOFLOW_INTEL_URL = `${RELEASE_BASE}/GoFlow-1.0.0-Intel.dmg`;
